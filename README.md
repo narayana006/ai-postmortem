@@ -1,14 +1,30 @@
 # ai-postmortem
 
-> Generate blameless postmortem drafts from incident Slack channels, PagerDuty/Opsgenie timelines and deploy logs.
+Generate blameless postmortem drafts from incident Slack channels, PagerDuty/Opsgenie timelines and deploy logs.
 
-**Status:** 🚧 Early stage — design and roadmap published, implementation in progress. Stars, issues and ideas welcome.
+> **Project status: planning. There is no working code in this repository yet.**
+> This README describes what the project will do. Nothing below can be installed or run today.
+> Features are ticked off in the checklist as they are built.
 
-## Why
+## What it is
 
-Writing postmortems is slow, so they get delayed or skipped and the lessons are lost.
+A command-line tool and Slack bot.
+
+**The problem it solves:** Writing postmortems is slow, so they get delayed or skipped and the lessons are lost.
+
+## Who it is for
+
+On-call engineers and incident commanders who have to write the postmortem after an incident.
+
+## How it will work
+
+1. You give the tool the incident's Slack export, paging timeline and deploy log.
+2. It rebuilds a timestamped timeline and drafts impact, root cause, contributing factors and action items in a blameless style.
+3. You review and edit the draft; the tool never publishes anything by itself.
 
 ## Planned features
+
+Unticked items are not built yet.
 
 - [ ] Ingest Slack channel exports, PagerDuty / Opsgenie timelines, deploy logs
 - [ ] Reconstructs a timestamped timeline
@@ -16,20 +32,13 @@ Writing postmortems is slow, so they get delayed or skipped and the lessons are 
 - [ ] Pluggable templates (Google SRE, Atlassian, custom)
 - [ ] Slack bot and CLI
 
-## Intended usage
+## Planned usage
 
-```
+This is the intended interface, shown so you can judge the design. **It does not work yet**, and names may change before the first release.
+
+```bash
 ai-postmortem draft --slack export.zip --pagerduty INC123 --template google-sre
 ```
-
-_The interface above is the target design and may change._
-
-## Roadmap
-
-1. Core implementation of the first feature set
-2. Examples and tests
-3. CI and first tagged release
-4. Docs and integrations
 
 ## Related
 
@@ -37,7 +46,7 @@ _The interface above is the target design and may change._
 
 ## Contributing
 
-Contributions are welcome. Open an issue to discuss an idea or pick an unchecked item from the feature list.
+Feedback on the design is the most useful contribution right now. Open an issue to suggest a feature, question an approach or describe your use case. Code contributions are welcome once the first version lands.
 
 ## License
 
