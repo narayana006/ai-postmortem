@@ -1,0 +1,4 @@
+time,service,version,action,environment,actor
+2026-03-14T11:20:00Z,search-api,v1.9.2,deploy,production,deploy-bot
+2026-03-14T13:58:04Z,checkout-api,v2.41.0,deploy,production,deploy-bot
+2026-03-14T14:31:12Z,checkout-api,v2.40.3,rollback,production,Priya Raman

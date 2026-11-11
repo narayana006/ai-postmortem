@@ -1,0 +1,41 @@
+{
+  "log_entries": [
+    {
+      "type": "trigger_log_entry",
+      "created_at": "2026-03-14T14:02:11Z",
+      "summary": "checkout-api 5xx error rate above 5% for 2 minutes",
+      "agent": {
+        "type": "service_reference",
+        "summary": ""
+      },
+      "service": {
+        "summary": "checkout-api"
+      }
+    },
+    {
+      "type": "notify_log_entry",
+      "created_at": "2026-03-14T14:02:15Z",
+      "summary": "Notified on-call by push notification"
+    },
+    {
+      "type": "acknowledge_log_entry",
+      "created_at": "2026-03-14T14:02:58Z",
+      "summary": "Acknowledged by Priya Raman",
+      "agent": {
+        "type": "user_reference",
+        "summary": "Priya Raman"
+      },
+      "service": {
+        "summary": "checkout-api"
+      }
+    },
+    {
+      "type": "resolve_log_entry",
+      "created_at": "2026-03-14T14:44:30Z",
+      "summary": "Resolved automatically: error rate back under threshold",
+      "service": {
+        "summary": "checkout-api"
+      }
+    }
+  ]
+}

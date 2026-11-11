@@ -1,0 +1,93 @@
+[
+  {
+    "type": "message",
+    "subtype": "channel_join",
+    "user": "U01PRIYA",
+    "ts": "1773496970.000000",
+    "text": "<@U01PRIYA> has joined the channel"
+  },
+  {
+    "type": "message",
+    "user": "U01PRIYA",
+    "ts": "1773496990.000001",
+    "text": "Paged for checkout-api 5xx. Looking now."
+  },
+  {
+    "type": "message",
+    "user": "U02TOMAS",
+    "ts": "1773497140.000002",
+    "text": "I'm seeing it too, the error rate dashboard shows 5xx climbing since about 14:00"
+  },
+  {
+    "type": "message",
+    "user": "U03MEI",
+    "ts": "1773497225.000003",
+    "text": "Impact: about 18% of checkout requests are failing with 503, support has 12 tickets so far"
+  },
+  {
+    "type": "message",
+    "user": "U01PRIYA",
+    "ts": "1773497370.000004",
+    "text": "Pods look healthy, CPU is fine. Not resolved by the restart of one pod I tried earlier in staging."
+  },
+  {
+    "type": "message",
+    "user": "U02TOMAS",
+    "ts": "1773497660.000005",
+    "text": "Logs are full of 'connection pool timeout' from the orders database client"
+  },
+  {
+    "type": "message",
+    "user": "U02TOMAS",
+    "ts": "1773497985.000006",
+    "text": "v2.41.0 went out at 13:58 and it changed the pool settings. Should we roll back?"
+  },
+  {
+    "type": "message",
+    "user": "U01PRIYA",
+    "ts": "1773498250.000007",
+    "text": "Turns out the pool size was cut from 50 to 5 per pod in v2.41.0, connections are exhausted under normal load"
+  },
+  {
+    "type": "message",
+    "user": "U03MEI",
+    "ts": "1773498390.000008",
+    "text": "It took so long to spot because there is no alert on pool saturation and the dashboard is hard to find"
+  },
+  {
+    "type": "message",
+    "user": "U01PRIYA",
+    "ts": "1773498555.000009",
+    "text": "Rolling back checkout-api to v2.40.3 now"
+  },
+  {
+    "type": "message",
+    "user": "U02TOMAS",
+    "ts": "1773498960.000010",
+    "text": "5xx rate is dropping, 2% and falling"
+  },
+  {
+    "type": "message",
+    "user": "U01PRIYA",
+    "ts": "1773499520.000011",
+    "text": "Error rate back to normal for 10 minutes. Incident resolved, thanks <@U02TOMAS> and <@U03MEI>"
+  },
+  {
+    "type": "message",
+    "user": "U03MEI",
+    "ts": "1773499680.000012",
+    "text": "AI: add an alert on database connection pool saturation for checkout-api"
+  },
+  {
+    "type": "message",
+    "user": "U02TOMAS",
+    "ts": "1773499770.000013",
+    "text": "Follow-up: the pool size change was not load tested, add a load test stage for connection settings"
+  },
+  {
+    "type": "message",
+    "user": "U01PRIYA",
+    "ts": "1773499870.000014",
+    "text": "We should link the pool dashboard from the checkout-api runbook"
+  }
+]
